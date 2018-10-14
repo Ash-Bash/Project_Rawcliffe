@@ -1,0 +1,12 @@
+{
+  "name": "project-rawcliffe",
+  "version": "0.0.0",
+  "description": "Project Rawcliffe",
+  "main": "app.js",
+  "author": {
+    "name": "Ash-B"
+  },
+  "devDependencies": {
+    "@types/node": "^6.0.87"
+  }
+}
