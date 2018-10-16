@@ -2,11 +2,18 @@
   "name": "project-rawcliffe",
   "version": "0.0.0",
   "description": "Project Rawcliffe",
-  "main": "app.js",
+  "main": "src/app.js",
   "author": {
     "name": "Ash-B"
   },
   "devDependencies": {
-    "@types/node": "^6.0.87"
+    "@types/node": "^6.0.87",
+    "electron": "^3.0.4"
+  },
+  "dependencies": {
+    "gcode-interpreter": "^2.1.0",
+    "gcode-parser": "^1.3.6",
+    "gcode-toolpath": "^2.2.0",
+    "three": "^0.97.0"
   }
 }

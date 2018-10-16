@@ -4,6 +4,9 @@
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
     <Name>Project Rawcliffe</Name>
     <RootNamespace>Project Rawcliffe</RootNamespace>
+    <NodeExePath>C:\Users\Ash-B\source\repos\Project Rawcliffe\Project Rawcliffe\node_modules\electron\dist\electron.exe</NodeExePath>
+    <NodeExeArguments>
+    </NodeExeArguments>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -11,7 +14,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>230a07b0-a172-4eda-9510-2d662f94c7fd</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>app.ts</StartupFile>
+    <StartupFile>src\app.ts</StartupFile>
     <StartWebBrowser>False</StartWebBrowser>
     <SearchPath>
     </SearchPath>
@@ -23,7 +26,7 @@
     <TypeScriptModuleKind>CommonJS</TypeScriptModuleKind>
     <TypeScriptToolsVersion>2.8</TypeScriptToolsVersion>
     <EnableTypeScript>true</EnableTypeScript>
-    <StartWebBrowser>false</StartWebBrowser>
+    <StartWebBrowser>False</StartWebBrowser>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -32,10 +35,27 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="app.ts" />
+    <TypeScriptCompile Include="src\app.ts" />
     <Content Include="package.json" />
     <Content Include="README.md" />
+    <Content Include="src\html\index.html">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="src\scss\app.scss">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="tsconfig.json" />
+    <TypeScriptCompile Include="src\ts\renderer.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="src\" />
+    <Folder Include="src\html\" />
+    <Folder Include="src\css\" />
+    <Folder Include="src\js\" />
+    <Folder Include="src\scss\" />
+    <Folder Include="src\ts\" />
   </ItemGroup>
   <!-- Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them. -->
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="False" />
