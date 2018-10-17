@@ -8,7 +8,20 @@
   },
   "devDependencies": {
     "@types/node": "^6.0.87",
-    "electron": "^3.0.4"
+    "electron": "^3.0.4",
+    "gulp": "latest",
+    "gulp-coffee": "latest",
+    "gulp-concat": "latest",
+    "gulp-connect": "latest",
+    "gulp-electron": "^0.1.3",
+    "gulp-run-command": "0.0.9",
+    "gulp-sass": "latest",
+    "gulp-shell": "^0.6.5",
+    "gulp-tsc": "^1.3.2",
+    "gulp-typescript": "^5.0.0-alpha.3",
+    "gulp-uglify": "latest",
+    "gulp-util": "latest",
+    "webpack": "^4.20.2"
   },
   "dependencies": {
     "gcode-interpreter": "^2.1.0",

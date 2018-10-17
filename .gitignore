@@ -135,7 +135,9 @@ DocProject/Help/*.hhp
 DocProject/Help/Html2
 DocProject/Help/html
 
-*.js
+lib/
+dist/
+
 *.js.map
 
 # Click-Once directory

@@ -1,0 +1,9 @@
+{
+    "appName": "Project Rawcliffe",
+    "version": "1.0.0",
+    "build": "100",
+    "identifier": "com.ashleychapman.projectrawcliffe",
+    "icon-macos": "",
+    "icon-win": "",
+    "icon-linux": ""
+}
