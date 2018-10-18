@@ -3,7 +3,12 @@ var gulp_electron = require('gulp-electron');
 var gulp_sass = require('gulp-sass');
 var gulp_tcs = require('gulp-tsc');
 var gulp_run = require('gulp-run-command');
-const shell = require('gulp-shell')
+const shell = require('gulp-shell');
+var clean = require('gulp-clean');
+var gulp_sourcemaps = require('gulp-sourcemaps');
+var fiber = require('fibers');
+
+gulp_sass.compiler = require('sass');
 
 //var infoJson = require('./dist/info.json');
 
@@ -18,13 +23,22 @@ gulp.task('copy-html', function() {
 });
 
 gulp.task('clean', function() {
-
+    return gulp.src('dist/', {read: false})
+    .pipe(clean({force: true}));
 });
 
 gulp.task('build-electronts', function() {
     gulp.src(['src/app.ts', 'src/ts/renderer.ts'])
     .pipe(gulp_tcs())
     .pipe(gulp.dest('dist/'))
+});
+
+gulp.task('sass:build', function() {
+    return gulp.src('./src/sass/**/*.scss')
+    .pipe(gulp_sourcemaps.init())
+    .pipe(gulp_sass({fiber: fiber}).on('error', gulp_sass.logError))
+    .pipe(gulp_sourcemaps.write('./dist/maps'))
+    .pipe(gulp.dest('./dist/css'));
 });
 
 gulp.task('build', function() {
@@ -79,4 +93,12 @@ gulp.task('run', function() {
 
 gulp.task('run-dev', function() {
     gulp.start('electron-dev');
+});
+
+gulp.task('sass:watch', function() {
+    gulp.watch('./src/sass/**/*.scss', ['sass']);
+}); 
+
+gulp.task('watch', ['sass:watch'], function() {
+
 });

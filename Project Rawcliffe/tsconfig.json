@@ -1,18 +1,30 @@
 {
+  "compileOnSave": false,
   "compilerOptions": {
     "module": "commonjs",
-    "target": "es6",
-    "lib": ["es6", "dom"],
-    "outDir": "dist",
+    "target": "es2015",
+    "jsx": "react",
+    "lib": ["es2015", "dom"],
+    "outDir": "./dist/js",
+    "pretty": true,
     "moduleResolution": "node",
     "sourceMap": true,
+    "newLine": "LF",
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "removeComments": false,
     "noImplicitAny": false,
     "suppressImplicitAnyIndexErrors": true,
-    "declaration":true 
+    "skipLibCheck": true,
+    "allowJs": true,
   },
+  "include": [
+      "./src/ts/app/**/*"
+  ],
   "exclude": [
     "node_modules"
   ]
