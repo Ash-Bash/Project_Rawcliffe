@@ -5,6 +5,10 @@ var gulp_tcs = require('gulp-tsc');
 var gulp_run = require('gulp-run-command');
 const shell = require('gulp-shell');
 var clean = require('gulp-clean');
+var concat = require('gulp-concat');
+var minifyCSS = require('gulp-minify-css');
+var autoprefixer = require('gulp-autoprefixer');
+var rename = require('gulp-rename');
 var gulp_sourcemaps = require('gulp-sourcemaps');
 var fiber = require('fibers');
 
@@ -12,12 +16,12 @@ gulp_sass.compiler = require('sass');
 
 //var infoJson = require('./dist/info.json');
 
-gulp.task('copy-info', function() {
+gulp.task('copy:info', function() {
     gulp.src('./src/info.json')
     .pipe(gulp.dest('dist/'))
 });
 
-gulp.task('copy-html', function() {
+gulp.task('copy:html', function() {
     gulp.src('./src/**/*.html')
     .pipe(gulp.dest('dist/'))
 });
@@ -27,17 +31,19 @@ gulp.task('clean', function() {
     .pipe(clean({force: true}));
 });
 
-gulp.task('build-electronts', function() {
+gulp.task('build:electronts', function() {
     gulp.src(['src/app.ts', 'src/ts/renderer.ts'])
     .pipe(gulp_tcs())
     .pipe(gulp.dest('dist/'))
 });
 
-gulp.task('sass:build', function() {
-    return gulp.src('./src/sass/**/*.scss')
+gulp.task('build:sass', function() {
+    return gulp.src('./src/scss/app.scss')
     .pipe(gulp_sourcemaps.init())
-    .pipe(gulp_sass({fiber: fiber}).on('error', gulp_sass.logError))
-    .pipe(gulp_sourcemaps.write('./dist/maps'))
+    .pipe(gulp_sass().on('error', gulp_sass.logError))
+    .pipe(minifyCSS())
+    .pipe(concat('app.min.css'))
+    .pipe(gulp_sourcemaps.write('./maps'))
     .pipe(gulp.dest('./dist/css'));
 });
 
@@ -45,9 +51,9 @@ gulp.task('build', function() {
 
 });
 
-gulp.task('webpack-build', shell.task('npm run build'));
+gulp.task('build:webpack', shell.task('npm run build'));
 
-gulp.task('electron-dev', ['copy-info', 'copy-html', 'build-electronts', 'webpack-build']);
+gulp.task('electron-dev', ['copy:info', 'copy:html', 'build:sass', 'build:electronts', 'build:webpack']);
 
 gulp.task('electron', function() {
     var infoJson = {
@@ -87,9 +93,9 @@ gulp.task('electron', function() {
 }); 
 
 gulp.task('run', function() {
-    gulp.start('copy-info');
-    gulp.start('copy-html');
-    gulp.start('build-electronts');
+    gulp.start('copy:info');
+    gulp.start('copy:html');
+    gulp.start('build:electronts');
     gulp.start('electron');
 });
 
