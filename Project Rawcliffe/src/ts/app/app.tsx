@@ -1,9 +1,23 @@
-import * as React from "react";
-import * as ReactDOM from "react-dom";
 
-import { Main } from "./main";
+import React = require('react');
+import ReactDom = require('react-dom');
 
-ReactDOM.render(
-    <Main compiler="TypeScript" framework="React" />,
-    document.getElementById("app")
+class App extends React.Component {
+  render() {
+    return (
+        <div>
+            <h1>Hello World!</h1>
+            <div>Node version: {process.versions.node}</div>,
+            Chromium
+            UNKNOWN,
+            and Electron
+            UNKNOWN.
+        </div>
+    );
+  }
+}
+
+ReactDom.render(
+    <App />,
+  document.getElementById('app')
 );

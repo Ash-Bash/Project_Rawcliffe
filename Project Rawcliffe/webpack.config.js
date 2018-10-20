@@ -2,8 +2,19 @@
 var debug = process.env.NODE_ENV !== "production";
 var webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const path = require('path')
 
-module.exports = { 
+module.exports = [
+    /*Object.assign({
+        target: 'electron-main',
+        entry: { main: './src/app.ts' }
+    }),
+    Object.assign({
+        target: 'electron-renderer',
+        entry: { gui: './src/ts/renderer.ts' },
+        plugins: [new HtmlWebpackPlugin()]
+    }),*/
+    { 
     entry: "./src/ts/app/app.tsx",
     output: {
         filename: "app.main.js",
@@ -36,4 +47,4 @@ module.exports = {
             }
         ]
     }
-}
+}]

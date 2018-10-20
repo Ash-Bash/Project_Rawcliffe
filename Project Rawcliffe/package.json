@@ -6,6 +6,9 @@
   "author": {
     "name": "Ash-B"
   },
+  "scripts": {
+    "build": "webpack --config webpack.config.js"
+  },
   "devDependencies": {
     "@babel/cli": "^7.0.0",
     "@babel/core": "^7.0.0",
