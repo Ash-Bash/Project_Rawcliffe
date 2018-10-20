@@ -53,7 +53,7 @@ gulp.task('build', function() {
 
 gulp.task('build:webpack', shell.task('npm run build'));
 
-gulp.task('electron-dev', ['copy:info', 'copy:html', 'build:sass', 'build:electronts', 'build:webpack']);
+gulp.task('dev:electron', ['copy:info', 'copy:html', 'build:sass', 'build:electronts', 'build:webpack']);
 
 gulp.task('electron', function() {
     var infoJson = {
@@ -99,7 +99,7 @@ gulp.task('run', function() {
     gulp.start('electron');
 });
 
-gulp.task('run-dev', ['electron-dev'], shell.task('electron dist/app.js'));
+gulp.task('run:dev', ['dev:electron'], shell.task('electron dist/app.js'));
 
 gulp.task('sass:watch', function() {
     gulp.watch('./src/sass/**/*.scss', ['sass']);
