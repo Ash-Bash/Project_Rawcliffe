@@ -1,5 +1,8 @@
 import { BrowserWindow } from 'electron';
 
+const path = require('path')
+const url = require('url');
+
 export default class Main {
     
     // Variables
@@ -18,8 +21,13 @@ export default class Main {
     }
 
     private static onReady() {
-        Main.mainWindow = new Main.BrowserWindow({ width: 800, height: 600});
-        Main.mainWindow.loadURL(__dirname + '/html/index.html');
+        Main.mainWindow = new Main.BrowserWindow({ width: 800, height: 600, protocol: 'file:', slashes: true});
+        Main.mainWindow.loadURL(url.format({
+            pathname: path.join(__dirname, "html/index.html"),
+            protocol: 'file:',
+            slashes: true
+          }));
+        
         Main.mainWindow.on('closed', Main.onClose);
     }
 

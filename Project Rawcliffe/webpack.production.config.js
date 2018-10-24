@@ -1,4 +1,3 @@
-
 var debug = process.env.NODE_ENV !== "production";
 var webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
@@ -24,7 +23,7 @@ module.exports = [
     resolve: {
         extensions: [".ts", ".tsx", ".js", ".jsx", ".json"]
     },
-    mode: "development",
+    mode: "production",
     module: {
         rules: [
             {

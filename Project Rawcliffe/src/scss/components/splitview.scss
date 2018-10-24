@@ -1,0 +1,20 @@
+div.splitview {
+    &.main {
+        height: calc(100% - 64px);
+    }
+
+    &.masterWithInspector {
+        #editorInspector, #threeDPreviewCanvas {
+            display: inline-block;
+            height: 100%;
+        }
+
+        #threeDPreviewCanvas {
+            width: calc(100% - 360px);
+        }
+
+        #editorInspector {
+            width: 360px;
+        }
+    }
+}

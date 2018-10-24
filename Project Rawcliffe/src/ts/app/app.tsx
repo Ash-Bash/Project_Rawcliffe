@@ -1,17 +1,16 @@
-
-import React = require('react');
+// Dependances
+import * as React from 'react';
+import {Component} from 'react';
 import ReactDom = require('react-dom');
 
-class App extends React.Component {
+// Customs Dependances
+import Editor from './components/editor';
+
+class App extends Component {
   render() {
     return (
-        <div>
-            <h1>Hello World!</h1>
-            <div>Node version: {process.versions.node}</div>,
-            Chromium
-            UNKNOWN,
-            and Electron
-            UNKNOWN.
+        <div id="appFrame">
+          <Editor />
         </div>
     );
   }

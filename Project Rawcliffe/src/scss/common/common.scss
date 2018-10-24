@@ -1,3 +1,18 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
 body {
-    background-color: aqua;
+    background-color: $secondary-background-color;
+}
+
+#app, #appFrame, #editor {
+    height: 100%;
+}
+
+#editorInspector {
+    background-color: aliceblue;
 }
