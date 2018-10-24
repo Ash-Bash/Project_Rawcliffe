@@ -21,7 +21,7 @@ export default class Main {
     }
 
     private static onReady() {
-        Main.mainWindow = new Main.BrowserWindow({ width: 800, height: 600, protocol: 'file:', slashes: true});
+        Main.mainWindow = new Main.BrowserWindow({ width: 1024, height: 768, protocol: 'file:', slashes: true});
         Main.mainWindow.loadURL(url.format({
             pathname: path.join(__dirname, "html/index.html"),
             protocol: 'file:',

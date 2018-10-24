@@ -11,7 +11,7 @@
     "sourceMap": true,
     "newLine": "LF",
     "allowSyntheticDefaultImports": true,
-    "strict": true,
+    "strict": false,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "emitDecoratorMetadata": true,
